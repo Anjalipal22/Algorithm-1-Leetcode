@@ -1,0 +1,20 @@
+ int searchInsert(vector<int>& nums, int target) {
+       int n = nums.size();
+		//lower bound
+        int s = 0;
+		//uper bound
+        int e = n-1;
+        while(s<=e){
+		//finding the middle index
+            int mid = s + (e-s)/2;
+            if(nums[mid]==target){
+                return mid;
+            }else if(nums[mid]<target){
+                s = mid+1;
+            }else{
+                e = mid-1;
+            }
+        }
+		// After doing pairs dry-run observe that lowerbound will the index 
+        return s;
+    }
